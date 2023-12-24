@@ -1,0 +1,8 @@
+binutils-gdb
+gcc
+mlibc
+build-bintuils
+build-gdb
+build-gcc
+build-mlibc
+build-mlibc-headers

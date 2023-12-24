@@ -1,0 +1,28 @@
+diff --git a/config.sub b/config.sub
+index f6ede1d0dc0..a0446cf74c9 100755
+--- a/config.sub
++++ b/config.sub
+@@ -1758,7 +1758,7 @@ case $os in
+ 	     | onefs* | tirtos* | phoenix* | fuchsia* | redox* | bme* \
+ 	     | midnightbsd* | amdhsa* | unleashed* | emscripten* | wasi* \
+ 	     | nsk* | powerunix* | genode* | zvmoe* | qnx* | emx* | zephyr* \
+-	     | fiwix* | mlibc* )
++	     | fiwix* | mlibc* | flux* )
+ 		;;
+ 	# This one is extra strict with allowed versions
+ 	sco3.2v2 | sco3.2v[4-9]* | sco5v6*)
+diff --git a/ld/configure.tgt b/ld/configure.tgt
+index c62b9581d9b..dfd7236d11a 100644
+--- a/ld/configure.tgt
++++ b/ld/configure.tgt
+@@ -821,6 +821,10 @@ riscv64be*-*-linux*)	targ_emul=elf64briscv
+ 			targ_extra_emuls="elf64briscv_lp64f elf64briscv_lp64 elf32briscv elf32briscv_ilp32f elf32briscv_ilp32 elf64lriscv elf64lriscv_lp64f elf64lriscv_lp64 elf32lriscv elf32lriscv_ilp32f elf32lriscv_ilp32"
+ 			targ_extra_libpath=$targ_extra_emuls
+ 			;;
++riscv64*-*-flux*)	targ_emul=elf64lriscv
++			targ_extra_emuls="elf64lriscv_lp64f elf64lriscv_lp64 elf32lriscv elf32lriscv_ilp32f elf32lriscv_ilp32 elf64briscv elf64briscv_lp64f elf64briscv_lp64 elf32briscv elf32briscv_ilp32f elf32briscv_ilp32"
++			targ_extra_libpath=$targ_extra_emuls
++			;;
+ riscv64*-*-linux*)	targ_emul=elf64lriscv
+ 			targ_extra_emuls="elf64lriscv_lp64f elf64lriscv_lp64 elf32lriscv elf32lriscv_ilp32f elf32lriscv_ilp32 elf64briscv elf64briscv_lp64f elf64briscv_lp64 elf32briscv elf32briscv_ilp32f elf32briscv_ilp32"
+ 			targ_extra_libpath=$targ_extra_emuls
